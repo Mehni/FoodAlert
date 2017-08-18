@@ -1,0 +1,3 @@
+C:\Users\Maniak\Documents\RimWorld Mods\Assemblies\FoodAlert.dll
+C:\Users\Maniak\Documents\RimWorld Mods\FoodAlert\FoodAlert\FoodAlert\obj\Debug\FoodAlert.csprojResolveAssemblyReference.cache
+C:\Users\Maniak\Documents\RimWorld Mods\FoodAlert\FoodAlert\FoodAlert\obj\Debug\FoodAlert.dll

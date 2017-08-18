@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Food Alert</name>
+	<author>Mehni</author>
+	<targetVersion>0.17.0</targetVersion>
+	<url>https://github.com/Mehni/FoodAlert/releases/latest</url>
+	<description>v0.17.0.1 Initial release.\n\n		Shows a persistent alert with the amount of food you currently have in storage, and an estimate of how long stocks will last.</description>
+</ModMetaData>
