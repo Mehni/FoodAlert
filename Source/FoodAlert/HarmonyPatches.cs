@@ -23,7 +23,7 @@ namespace FoodAlert
         private static void FoodCounter_NearDatePostfix(float leftX, float width, ref float curBaseY)
         {
             {
-                var map = Find.VisibleMap;
+                var map = Find.CurrentMap;
                 if (map == null || !map.IsPlayerHome) return;
                 if (Find.TickManager.TicksGame < 150000) return;
 
@@ -61,6 +61,7 @@ namespace FoodAlert
                         addendumForFlavour = "FoodAlert_Decent".Translate();
                         break;
                 }
+                if (humansGettingFood == 0) addendumForFlavour = "\n\nShit you made me divide by zero. Disregard that.";
 
                 float rightMargin = 7f;
                 Rect zlRect = new Rect(UI.screenWidth - Alert.Width, curBaseY - 24f, Alert.Width, 24f);
@@ -75,10 +76,7 @@ namespace FoodAlert
                 Text.Anchor = TextAnchor.UpperRight;
                 Rect rect = zlRect.AtZero();
                 rect.xMax -= rightMargin;
-                if (Event.current.capsLock)
-                {
-                    rect.yMin -= 50f;
-                }
+
                 Widgets.Label(rect, daysWorthOfHumanFood);
                 Text.Anchor = TextAnchor.UpperLeft;
                 GUI.EndGroup();
