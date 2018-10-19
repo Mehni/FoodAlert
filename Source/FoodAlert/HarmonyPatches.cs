@@ -14,7 +14,7 @@ namespace FoodAlert
     {
         static HarmonyPatches()
         {
-            HarmonyInstance harmony = HarmonyInstance.Create("Mehni.RimWorld.FoodAlert.Main");
+            HarmonyInstance harmony = HarmonyInstance.Create("mehni.rimworld.FoodAlert.main");
 
             harmony.Patch(AccessTools.Method(typeof(GlobalControlsUtility), nameof(GlobalControlsUtility.DoDate)), null,
                 new HarmonyMethod(typeof(HarmonyPatches), nameof(FoodCounter_NearDatePostfix)), null);
@@ -24,16 +24,18 @@ namespace FoodAlert
         {
             {
                 var map = Find.CurrentMap;
-                if (map == null || !map.IsPlayerHome) return;
-                if (Find.TickManager.TicksGame < 150000) return;
+
+                if (map == null || !map.IsPlayerHome)
+                    return;
+                if (Find.TickManager.TicksGame < 150000)
+                    return;
 
                 float totalHumanEdibleNutrition = map.resourceCounter.TotalHumanEdibleNutrition;
 
-                if (totalHumanEdibleNutrition < 4f * (float)map.mapPawns.FreeColonistsSpawnedCount) return;
+                if (totalHumanEdibleNutrition < 4f * map.mapPawns.FreeColonistsSpawnedCount)
+                    return;
 
-                int humansGettingFood = map.mapPawns.FreeColonistsSpawnedCount + (from pr in map.mapPawns.PrisonersOfColony
-                                                                    where pr.guest.GetsFood
-                                                                    select pr).Count<Pawn>();
+                int humansGettingFood = map.mapPawns.FreeColonistsSpawnedCount + map.mapPawns.PrisonersOfColony.Count();
 
                 int totalDaysOfFood = Mathf.FloorToInt(totalHumanEdibleNutrition / humansGettingFood);
                 string daysWorthOfHumanFood = $"{totalDaysOfFood}" + "FoodAlert_DaysOfFood".Translate();
@@ -61,16 +63,16 @@ namespace FoodAlert
                         addendumForFlavour = "FoodAlert_Decent".Translate();
                         break;
                 }
-                if (humansGettingFood == 0) addendumForFlavour = "\n\nShit you made me divide by zero. Disregard that.";
+
+                if (humansGettingFood == 0)
+                    addendumForFlavour = "\n\nShit you made me divide by zero. Disregard that.";
 
                 float rightMargin = 7f;
                 Rect zlRect = new Rect(UI.screenWidth - Alert.Width, curBaseY - 24f, Alert.Width, 24f);
                 Text.Font = GameFont.Small;
 
                 if (Mouse.IsOver(zlRect))
-                {
                     Widgets.DrawHighlight(zlRect);
-                }
 
                 GUI.BeginGroup(zlRect);
                 Text.Anchor = TextAnchor.UpperRight;
@@ -83,7 +85,6 @@ namespace FoodAlert
 
                 TooltipHandler.TipRegion(zlRect, new TipSignal(delegate
                 {
-
                     return string.Format("SomeFoodDesc".Translate(), totalHumanEdibleNutrition.ToString("F0"), humansGettingFood.ToStringCached(), totalDaysOfFood.ToStringCached() + addendumForFlavour);
                 }, 76515));
 

@@ -2,7 +2,7 @@
 <ModMetaData>
 	<name>Food Alert</name>
 	<author>Mehni</author>
-	<targetVersion>0.19.0</targetVersion>
+	<targetVersion>1.0.0</targetVersion>
 	<url>https://github.com/Mehni/FoodAlert/releases/latest</url>
-	<description>v1.0.1\n\n		Shows a persistent readout with the amount of food you currently have in storage, and an estimate of how long stocks will last.</description>
+	<description>v1.1.0\n\n		Shows a persistent readout with the amount of food you currently have in storage, and an estimate of how long stocks will last.</description>
 </ModMetaData>
