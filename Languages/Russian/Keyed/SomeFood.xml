@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+ <SomeFood>Запас еды</SomeFood>
+ <SomeFoodDesc>Запас еды не вызывает беспокойства.\n\n    Запас на складе: {0}\n    Колонисты и заключённые получают: {1}\n    На складах осталось еды на: {2}</SomeFoodDesc>
+ <FoodAlert_DaysOfFood> дней с едой</FoodAlert_DaysOfFood>
+ <FoodAlert_Decent>\n\nЭто приличное количество еды.</FoodAlert_Decent>
+ <FoodAlert_Bunch>\n\nЭто целая куча еды.</FoodAlert_Bunch>
+ <FoodAlert_Solid>\n\nЭто солидное количество еды.</FoodAlert_Solid>
+ <FoodAlert_Ridiculous>\n\nЭто совершенно нелепое количество пищи.</FoodAlert_Ridiculous>
+ 
+</LanguageData>
